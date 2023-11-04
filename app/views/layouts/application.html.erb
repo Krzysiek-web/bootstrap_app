@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BootstrapApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <div class="container">
+          <% if flash[:notice].present? %>
+            <div class="alert alert-success">
+              <%= flash[:notice]%>
+            </div>
+          <% end %>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <h1 class="navbar-brand ">Strona na bootstrapie</h1>
+        </div>
+      </nav>
+      <%= yield %>
+    </div>
+  </body>
+</html>
