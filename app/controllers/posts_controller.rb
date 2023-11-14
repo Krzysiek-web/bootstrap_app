@@ -38,8 +38,10 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
+    @post.destroy!
+    respond_to do |format|
+      format.html{redirect_to posts_url, notice: "Post usunięty prawidłowo"}
+    end
   end
 
   private
